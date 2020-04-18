@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmCompute.msgnode="ComIbmCompute.msgnode" xmlns:ComIbmMSLMapping.msgnode="ComIbmMSLMapping.msgnode" xmlns:ComIbmSOAPRequest.msgnode="ComIbmSOAPRequest.msgnode" xmlns:ComIbmWSInput.msgnode="ComIbmWSInput.msgnode" xmlns:ComIbmWSReply.msgnode="ComIbmWSReply.msgnode" xmlns:ExceptionManager_ExMan.subflow="ExceptionManager/ExMan.subflow" xmlns:Logger_Logger.subflow="Logger/Logger.subflow" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="ShoppingMall_MerchantVerify.msgflow" nsPrefix="ShoppingMall_MerchantVerify.msgflow">
+  <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1">
+    <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.ERROR_LOG_DIR" name="ERROR_LOG_DIR" defaultValueLiteral="/opt/esbapplogs/dev">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.ERROR_LOG_FILE" name="ERROR_LOG_FILE" defaultValueLiteral="EXT_ShoppingMall.log">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.LOG_DIRECTORY" name="LOG_DIRECTORY" defaultValueLiteral="/opt/esbapplogs/dev">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.LOG_FILE" name="LOG_FILE" defaultValueLiteral="EXT_ShoppingMall.log">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.SM_IIB_SOAP_URL" name="SM_IIB_SOAP_URL" defaultValueLiteral="http://localhost:7800/iib/oc/ShoppingMall">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.SM_IIB_SOAP_URL.internal_npcompiler" name="SM_IIB_SOAP_URL.internal_npcompiler">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <translation xmi:type="utility:TranslatableString" key="ShoppingMall_MerchantVerify" bundleName="ShoppingMall_MerchantVerify" pluginId="EXT_ShoppingMall"/>
+    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/EXT_ShoppingMall/icons/full/obj16/ShoppingMall_MerchantVerify.gif"/>
+    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/EXT_ShoppingMall/icons/full/obj30/ShoppingMall_MerchantVerify.gif"/>
+    <composition>
+      <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="67,285" URLSpecifier="/SVRClientWeb/ActionController" setDestinationList="true" parseQueryString="true">
+        <translation xmi:type="utility:ConstantString" string="HTTP Input"/>
+      </nodes>
+      <nodes xmi:type="ComIbmSOAPRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="564,225" wsdlFileName="ShoppingMall.wsdl" selectedPortType="ShoppingMall" selectedBinding="ShoppingMallSOAP" selectedOperation="verifyTransaction" selectedPort="ShoppingMallSOAP" targetNamespace="http://www.example.org/ShoppingMall/" useHTTPTransport="true" webServiceURL="http://10.30.2.114:7800/iib/oc/ShoppingMall" sslProtocol="TLS" parserXmlnscBuildTreeUsingXMLSchema="false" validateMaster="none">
+        <translation xmi:type="utility:ConstantString" string="SOAP Request"/>
+      </nodes>
+      <nodes xmi:type="ComIbmWSReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="1098,313">
+        <translation xmi:type="utility:ConstantString" string="HTTP Reply"/>
+      </nodes>
+      <nodes xmi:type="ExceptionManager_ExMan.subflow:FCMComposite_1" xmi:id="FCMComposite_1_4" location="232,286">
+        <translation xmi:type="utility:ConstantString" string="ExMan"/>
+      </nodes>
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="385,217" mappingExpression="msl://{default}#ShoppingMall_MerchantVerify_InMapping">
+        <translation xmi:type="utility:ConstantString" string="Mapping"/>
+      </nodes>
+      <nodes xmi:type="Logger_Logger.subflow:FCMComposite_1" xmi:id="FCMComposite_1_6" location="289,217" LOG_DOMAIN="JSON">
+        <translation xmi:type="utility:ConstantString" string="Logger"/>
+      </nodes>
+      <nodes xmi:type="Logger_Logger.subflow:FCMComposite_1" xmi:id="FCMComposite_1_7" location="484,225" LOG_DOMAIN="XMLNSC">
+        <translation xmi:type="utility:ConstantString" string="Logger1"/>
+      </nodes>
+      <nodes xmi:type="Logger_Logger.subflow:FCMComposite_1" xmi:id="FCMComposite_1_8" location="713,221" LOG_DOMAIN="SOAP">
+        <translation xmi:type="utility:ConstantString" string="Logger2"/>
+      </nodes>
+      <nodes xmi:type="Logger_Logger.subflow:FCMComposite_1" xmi:id="FCMComposite_1_10" location="435,354" LOG_DOMAIN="XMLNSC">
+        <translation xmi:type="utility:ConstantString" string="Logger4"/>
+      </nodes>
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_11" location="825,221" computeExpression="esql://routine/#ShoppingMall_MerchantVerify_Compute.Main">
+        <translation xmi:type="utility:ConstantString" string="Compute"/>
+      </nodes>
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_12" location="744,357" computeExpression="esql://routine/#ShoppingMall_MerchantVerify_Compute1.Main">
+        <translation xmi:type="utility:ConstantString" string="Compute1"/>
+      </nodes>
+      <nodes xmi:type="Logger_Logger.subflow:FCMComposite_1" xmi:id="FCMComposite_1_13" location="998,313" LOG_DOMAIN="BLOB">
+        <translation xmi:type="utility:ConstantString" string="Logger3"/>
+      </nodes>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_4" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.failure" targetTerminalName="InTerminal.Input"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_2" targetNode="FCMComposite_1_4" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.timeout" targetTerminalName="InTerminal.Input2"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_3" targetNode="FCMComposite_1_4" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.catch" targetTerminalName="InTerminal.Input2"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_4" targetNode="FCMComposite_1_4" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.Input1"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_11" targetNode="FCMComposite_1_6" sourceNode="FCMComposite_1_4" sourceTerminalName="OutTerminal.Output" targetTerminalName="InTerminal.Input"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_12" targetNode="FCMComposite_1_5" sourceNode="FCMComposite_1_6" sourceTerminalName="OutTerminal.Output" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_13" targetNode="FCMComposite_1_7" sourceNode="FCMComposite_1_5" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.Input"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_14" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_7" sourceTerminalName="OutTerminal.Output" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_16" targetNode="FCMComposite_1_8" sourceNode="FCMComposite_1_2" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.Input1"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_18" targetNode="FCMComposite_1_10" sourceNode="FCMComposite_1_4" sourceTerminalName="OutTerminal.Output1" targetTerminalName="InTerminal.Input1"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_21" targetNode="FCMComposite_1_11" sourceNode="FCMComposite_1_8" sourceTerminalName="OutTerminal.Output" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_23" targetNode="FCMComposite_1_12" sourceNode="FCMComposite_1_10" sourceTerminalName="OutTerminal.Output" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_25" targetNode="FCMComposite_1_13" sourceNode="FCMComposite_1_11" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.Input1"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_26" targetNode="FCMComposite_1_13" sourceNode="FCMComposite_1_12" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.Input1"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_30" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_13" sourceTerminalName="OutTerminal.Output" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_32" targetNode="FCMComposite_1_8" sourceNode="FCMComposite_1_2" sourceTerminalName="OutTerminal.fault" targetTerminalName="InTerminal.Input1"/>
+    </composition>
+    <propertyOrganizer>
+      <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.ERROR_LOG_DIR">
+        <propertyName xmi:type="utility:TranslatableString" key="Property.ERROR_LOG_DIR" bundleName="ExceptionManager/ExMan" pluginId="ExceptionManager"/>
+        <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.ERROR_LOG_FILE">
+          <propertyName xmi:type="utility:TranslatableString" key="Property.ERROR_LOG_FILE" bundleName="ExceptionManager/ExMan" pluginId="ExceptionManager"/>
+          <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.LOG_DIRECTORY">
+            <propertyName xmi:type="utility:TranslatableString" key="Property.LOG_DIRECTORY" bundleName="Logger/Logger" pluginId="Logger"/>
+            <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.LOG_FILE">
+              <propertyName xmi:type="utility:TranslatableString" key="Property.LOG_FILE" bundleName="Logger/Logger" pluginId="Logger"/>
+              <propertyDescriptor groupName="Group.Basic" propertyEditor="com.ibm.etools.mft.ibmnodes.editors.soap.http.SOAP_Over_HTTP_WebServicesURLPropertyEditor" compiler="com.ibm.etools.mft.ibmnodes.compilers.GenericSOAPCompiler" configurable="true" describedAttribute="Property.SM_IIB_SOAP_URL">
+                <propertyName xmi:type="utility:TranslatableString" key="Property.SM_IIB_SOAP_URL" bundleName="ShoppingMall_MerchantVerify" pluginId="EXT_ShoppingMall"/>
+                <propertyDescriptor groupName="Group.InternalRuntimeGroup" readOnly="true" hidden="true" userDefined="true" describedAttribute="Property.SM_IIB_SOAP_URL.internal_npcompiler">
+                  <propertyName xmi:type="utility:TranslatableString" key="Property.SM_IIB_SOAP_URL.internal_npcompiler" bundleName="ShoppingMall_MerchantVerify" pluginId="EXT_ShoppingMall"/>
+                </propertyDescriptor>
+              </propertyDescriptor>
+            </propertyDescriptor>
+          </propertyDescriptor>
+        </propertyDescriptor>
+      </propertyDescriptor>
+    </propertyOrganizer>
+    <attributeLinks promotedAttribute="Property.ERROR_LOG_DIR" overriddenNodes="FCMComposite_1_4">
+      <overriddenAttribute href="ExceptionManager/ExMan.subflow#Property.ERROR_LOG_DIR"/>
+    </attributeLinks>
+    <attributeLinks promotedAttribute="Property.ERROR_LOG_FILE" overriddenNodes="FCMComposite_1_4">
+      <overriddenAttribute href="ExceptionManager/ExMan.subflow#Property.ERROR_LOG_FILE"/>
+    </attributeLinks>
+    <attributeLinks promotedAttribute="Property.LOG_DIRECTORY" overriddenNodes="FCMComposite_1_6 FCMComposite_1_7 FCMComposite_1_10 FCMComposite_1_8 FCMComposite_1_13">
+      <overriddenAttribute href="Logger/Logger.subflow#Property.LOG_DIRECTORY"/>
+    </attributeLinks>
+    <attributeLinks promotedAttribute="Property.LOG_FILE" overriddenNodes="FCMComposite_1_6 FCMComposite_1_7 FCMComposite_1_10 FCMComposite_1_8 FCMComposite_1_13">
+      <overriddenAttribute href="Logger/Logger.subflow#Property.LOG_FILE"/>
+    </attributeLinks>
+    <attributeLinks promotedAttribute="Property.SM_IIB_SOAP_URL" overriddenNodes="FCMComposite_1_2">
+      <overriddenAttribute href="ComIbmSOAPRequest.msgnode#Property.webServiceURL"/>
+    </attributeLinks>
+    <stickyBoard/>
+  </eClassifiers>
+</ecore:EPackage>

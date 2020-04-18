@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.sampath.lk/iib/oc/messageHeader" xmlns:tns="http://www.sampath.lk/iib/oc/messageHeader">
+
+    <xsd:complexType name="RequestHeader">
+    	<xsd:sequence>
+    		<xsd:element maxOccurs="1" minOccurs="0" name="userName" type="xsd:string">
+    		</xsd:element>
+    		<xsd:element maxOccurs="1" minOccurs="0" name="nic" type="xsd:string">
+    		</xsd:element>
+    		<xsd:element maxOccurs="1" minOccurs="0" name="customerId" type="xsd:string">
+    		</xsd:element>
+    		<xsd:element maxOccurs="1" minOccurs="0" name="ocUserId" type="xsd:string"/>
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ResponseHeader">
+    	<xsd:sequence>
+    		<xsd:element name="statusCode" type="xsd:boolean"/>
+    		<xsd:element name="statusDescription" type="xsd:string"/>
+    		<xsd:element name="errorCode" type="xsd:string"/>
+    		<xsd:element name="errorDescription" type="xsd:string"/>
+    	</xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

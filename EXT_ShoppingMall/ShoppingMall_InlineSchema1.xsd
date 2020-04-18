@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/ShoppingMall/" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:pref="http://www.sampath.lk/iib/oc/messageHeader" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/ShoppingMall/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    	<xsd:import namespace="http://www.sampath.lk/iib/oc/messageHeader" schemaLocation="messageHeader.xsd"/>
+    	<xsd:element ibmSchExtn:docRoot="true" name="initiateTransaction" type="tns:initiateTransactionRequestType">
+
+    	</xsd:element>
+    	<xsd:element ibmSchExtn:docRoot="true" name="initiateTransactionResponse" type="tns:initiateTransactionResponseType">
+
+    	</xsd:element>
+    	<xsd:element name="getTransactionDetails" type="tns:getTransactionDetailsRequestType">
+
+    	</xsd:element>
+    	<xsd:element name="getTransactionDetailsResponse" type="tns:getTransactionDetailsResponseType">
+
+    	</xsd:element>
+    	<xsd:element name="validateTransaction" type="tns:validateTransactionRequestType">
+
+    	</xsd:element>
+    	<xsd:element name="validateTransactionResponse" type="tns:validateTransactionResponseType">
+
+    	</xsd:element>
+    	<xsd:element name="doTransaction"
+    		type="tns:doTransactionRequestType">
+
+    	</xsd:element>
+    	<xsd:element name="doTransactionResponse"
+    		type="tns:doTransactionResponseType">
+
+    	</xsd:element>
+
+
+    	<xsd:element name="verifyTransaction"
+    		type="tns:verifyTransactionRequestType">
+
+    	</xsd:element>
+    	<xsd:element name="verifyTransactionResponse"
+    		type="tns:verifyTransactionResponseType">
+
+    	</xsd:element>
+
+    	<xsd:complexType name="initiateTransactionRequestType">
+    		<xsd:sequence>
+    			<xsd:element name="requestHeader" type="pref:RequestHeader"/>
+    			<xsd:element name="merchantID" type="xsd:string"/>
+    			<xsd:element name="transactionAmount" type="xsd:integer">
+    			</xsd:element>
+    			<xsd:element name="merchantTxnReference" type="xsd:string">
+    			</xsd:element>
+    			<xsd:element name="transactionCurrency" type="xsd:string">
+    			</xsd:element>
+    			<xsd:element name="merchantRedirectURL" type="xsd:string">
+    			</xsd:element>
+    		</xsd:sequence>
+    	</xsd:complexType>
+
+    	<xsd:complexType name="initiateTransactionResponseType">
+    		<xsd:sequence>
+    			<xsd:element name="responseHeader"
+    				type="pref:ResponseHeader" />
+    			<xsd:element name="txnReference" type="xsd:integer" />
+    		</xsd:sequence>
+    	</xsd:complexType>
+
+    	<xsd:complexType name="getTransactionDetailsRequestType">
+
+    		<xsd:sequence>
+    			<xsd:element name="requestHeader" type="pref:RequestHeader"/>
+    			<xsd:element name="txnReference" type="xsd:integer"/>
+    		</xsd:sequence>
+    	</xsd:complexType>
+
+    	<xsd:complexType name="getTransactionDetailsResponseType">
+    		<xsd:sequence>
+    			<xsd:element name="responseHeader"
+    				type="pref:ResponseHeader" />
+    			<xsd:element name="transactionAmount"
+    				type="xsd:string">
+    			</xsd:element>
+    			<xsd:element name="transactionCurrency"
+    				type="xsd:string">
+    			</xsd:element>
+    			<xsd:element name="merchantTxnReference"
+    				type="xsd:string" />
+    		</xsd:sequence>
+    	</xsd:complexType>
+
+    	<xsd:complexType name="validateTransactionRequestType">
+    		<xsd:sequence>
+
+    			<xsd:element name="requestHeader" type="pref:RequestHeader"/>
+    			<xsd:element name="txnReference" type="xsd:integer"/>
+    			<xsd:element name="debitAccount" type="xsd:string"/>
+
+    		</xsd:sequence>
+    	</xsd:complexType>
+
+    	<xsd:complexType name="validateTransactionResponseType">
+    		<xsd:sequence>
+    			<xsd:element name="responseHeader"
+    				type="pref:ResponseHeader" />
+    		</xsd:sequence>
+    	</xsd:complexType>
+    
+    <xsd:complexType name="doTransactionRequestType">
+    	<xsd:sequence>
+    		<xsd:element name="requestHeader" type="pref:RequestHeader"></xsd:element>
+    		<xsd:element name="txnReference" type="xsd:integer"></xsd:element>
+    		<xsd:element name="debitAccount" type="xsd:string"></xsd:element>
+    	</xsd:sequence></xsd:complexType>
+
+    <xsd:complexType name="doTransactionResponseType">
+    	<xsd:sequence>
+    		<xsd:element name="responseHeader"
+    			type="pref:ResponseHeader">
+    		</xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="verifyTransactionRequestType">
+    	<xsd:sequence>
+    		<xsd:element name="requestHeader" type="pref:RequestHeader"></xsd:element>
+    		<xsd:element name="merchantID" type="xsd:string"></xsd:element>
+    		<xsd:element name="merchantTxnReference"
+    			type="xsd:string">
+    		</xsd:element>
+    		<xsd:element name="txnReference" type="xsd:integer"></xsd:element>
+    		<xsd:element name="transactionAmount" type="xsd:string"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="verifyTransactionResponseType">
+    	<xsd:sequence>
+    		<xsd:element name="responseHeader"
+    			type="pref:ResponseHeader">
+    		</xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

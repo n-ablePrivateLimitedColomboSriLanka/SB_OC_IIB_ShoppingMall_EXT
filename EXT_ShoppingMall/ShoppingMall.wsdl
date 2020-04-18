@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="ShoppingMall" targetNamespace="http://www.example.org/ShoppingMall/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/ShoppingMall/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <generatedXSD location="ShoppingMall_InlineSchema1.xsd"/>
+        <binding hasEncoding="false" imported="true" name="ShoppingMallSOAP" originalBindingStyle="document"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  <wsdl:types>
+    
+          <xsd:schema targetNamespace="http://www.example.org/ShoppingMall/" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:pref="http://www.sampath.lk/iib/oc/messageHeader">
+<xsd:include schemaLocation="ShoppingMall_InlineSchema1.xsd"/>
+    </xsd:schema>
+    </wsdl:types>
+  <wsdl:message name="initiateTransactionRequest">
+    <wsdl:part element="tns:initiateTransaction" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="initiateTransactionResponse">
+    <wsdl:part element="tns:initiateTransactionResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getTransactionDetailsRequest">
+  	<wsdl:part element="tns:getTransactionDetails" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getTransactionDetailsResponse">
+  	<wsdl:part element="tns:getTransactionDetailsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="validateTransactionRequest">
+  	<wsdl:part element="tns:validateTransaction" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="validateTransactionResponse">
+  	<wsdl:part element="tns:validateTransactionResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="doTransactionRequest">
+  	<wsdl:part element="tns:doTransaction" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="doTransactionResponse">
+  	<wsdl:part element="tns:doTransactionResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="verifyTransactionRequest">
+  	<wsdl:part element="tns:verifyTransaction" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="verifyTransactionResponse">
+  	<wsdl:part element="tns:verifyTransactionResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="ShoppingMall">
+    <wsdl:operation name="initiateTransaction">
+      <wsdl:input message="tns:initiateTransactionRequest"/>
+      <wsdl:output message="tns:initiateTransactionResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getTransactionDetails">
+    	<wsdl:input message="tns:getTransactionDetailsRequest"/>
+    	<wsdl:output message="tns:getTransactionDetailsResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="validateTransaction">
+    	<wsdl:input message="tns:validateTransactionRequest"/>
+    	<wsdl:output message="tns:validateTransactionResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="doTransaction">
+    	<wsdl:input message="tns:doTransactionRequest"/>
+    	<wsdl:output message="tns:doTransactionResponse"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="verifyTransaction">
+    	<wsdl:input message="tns:verifyTransactionRequest"/>
+    	<wsdl:output message="tns:verifyTransactionResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ShoppingMallSOAP" type="tns:ShoppingMall">
+
+  	<soap:binding style="document"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="initiateTransaction">
+
+  		<soap:operation
+  			soapAction="http://www.example.org/ShoppingMall/initiateTransaction" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="getTransactionDetails">
+
+  		<soap:operation
+  			soapAction="http://www.example.org/ShoppingMall/getTransactionDetails" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="validateTransaction">
+
+  		<soap:operation
+  			soapAction="http://www.example.org/ShoppingMall/validateTransaction" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="doTransaction">
+
+  		<soap:operation
+  			soapAction="http://www.example.org/ShoppingMall/doTransaction" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="verifyTransaction">
+
+  		<soap:operation
+  			soapAction="http://www.example.org/ShoppingMall/verifyTransaction" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ShoppingMall">
+    <wsdl:port binding="tns:ShoppingMallSOAP" name="ShoppingMallSOAP">
+      <soap:address location="/iib/oc/ShoppingMall"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

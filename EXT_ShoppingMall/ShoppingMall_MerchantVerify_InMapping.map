@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="default" version="8.0.5.0" xmlns:map="default">
+    <inlinedXMLSchema><![CDATA[<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">  
+    <xsd:element name="AMT" type="xsd:string"/>  
+    <xsd:element name="TRN" type="xsd:string"/>  
+    <xsd:element name="PRN" type="xsd:string"/>  
+    <xsd:element name="PID" type="xsd:string"/>  
+    <xsd:element name="MD" type="xsd:string"/>  
+</xsd:schema>]]></inlinedXMLSchema>
+    <input path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/BlobMessage.xsd" var="var3"/>
+    <input inlinedXMLSchema="true" path="../schema_0.xsd" var="var2"/>
+    <output path="/ShoppingMall_InlineSchema1.xsd" var="var1"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="out2" uri="http://www.sampath.lk/iib/oc/messageHeader"/>
+        <namespace kind="supplement" prefix="out" uri="http://www.example.org/ShoppingMall/"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="ShoppingMall_MerchantVerify_InMapping">
+        <input path="$var3/mb:msg(BLOB,assembly,BLOB,LocalEnvironment,Properties)" var="MessageAssembly1">
+            <cast castType="userDefined" path="$MessageAssembly1/LocalEnvironment/HTTP/Input/QueryString/any" qualifier="MD" ref="var2"/>
+            <cast castType="userDefined" path="$MessageAssembly1/LocalEnvironment/HTTP/Input/QueryString/any" qualifier="PID" ref="var2"/>
+            <cast castType="userDefined" path="$MessageAssembly1/LocalEnvironment/HTTP/Input/QueryString/any" qualifier="PRN" ref="var2"/>
+            <cast castType="userDefined" path="$MessageAssembly1/LocalEnvironment/HTTP/Input/QueryString/any" qualifier="TRN" ref="var2"/>
+            <cast castType="userDefined" path="$MessageAssembly1/LocalEnvironment/HTTP/Input/QueryString/any" qualifier="AMT" ref="var2"/>
+        </input>
+        <output namespace="http://www.example.org/ShoppingMall/" path="$var1/mb:msg(verifyTransaction,assembly,XMLNSC,Properties)" var="MessageAssembly"/>
+        <move>
+            <input path="$MessageAssembly1/LocalEnvironment/HTTP/Input/QueryString/PID[1]"/>
+            <output path="$MessageAssembly/verifyTransaction/merchantID"/>
+        </move>
+        <move>
+            <input path="$MessageAssembly1/LocalEnvironment/HTTP/Input/QueryString/PRN[1]"/>
+            <output path="$MessageAssembly/verifyTransaction/merchantTxnReference"/>
+        </move>
+        <convert defaultValue="0">
+            <input path="$MessageAssembly1/LocalEnvironment/HTTP/Input/QueryString/TRN[1]"/>
+            <output path="$MessageAssembly/verifyTransaction/txnReference"/>
+        </convert>
+        <move>
+            <input path="$MessageAssembly1/LocalEnvironment/HTTP/Input/QueryString/AMT[1]"/>
+            <output path="$MessageAssembly/verifyTransaction/transactionAmount"/>
+        </move>
+        <assign value="SMMERCHANT">
+            <output path="$MessageAssembly/verifyTransaction/requestHeader/userName"/>
+        </assign>
+    </mappingDeclaration>
+</mappingRoot>
